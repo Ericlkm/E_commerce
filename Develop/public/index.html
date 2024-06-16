@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Cool Stuff</title>
+    <style>
+      body {
+        background-color: #222;
+        color: #fff;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        perspective: 800px;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        background-color: #333;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .box::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 300%;
+        height: 300%;
+        background: linear-gradient(to right, #ff00cc, #333399);
+        animation: spin 10s linear infinite;
+      }
+
+      .box::after {
+        content: "Wrong route, try localhost:3001/api !😁";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        z-index: 1;
+      }
+
+      .box:hover {
+        transform: rotateY(20deg);
+        box-shadow: 0 0 50px rgba(255, 255, 255, 0.718);
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

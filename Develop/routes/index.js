@@ -1,10 +1,11 @@
-const router = require('express').Router();
-const apiRoutes = require('./api');
+const router = require("express").Router();
+const apiRoutes = require("./api");
+const path = require("path");
 
-router.use('/api', apiRoutes);
+router.use("/api", apiRoutes);
 
-router.use((req, res) => {
-  res.send("<h1>Wrong Route!</h1>")
+router.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 module.exports = router;
